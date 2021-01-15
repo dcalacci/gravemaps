@@ -1,0 +1,47 @@
+type Query {
+  hello: String!
+}
+
+
+enum NumGraveyards {
+    SMALL
+    MEDIUM
+    LARGE
+}
+
+enum MapType {
+    LEGEND
+    NOLEGEND
+}
+
+type Graveyard {
+    name: String!
+    lat: Float!
+    lng: Float!
+    id: Int!
+}
+
+type Map {
+    id: String!
+    xmin: Float!
+    ymin: Float!
+    xmax: Float!
+    ymax: Float!
+    imageUrl: String!
+    nGraveyards: NumGraveyards!
+    mapType: MapType!
+    totalGraveyards: Int!
+    allGraveyards: [Graveyard!]
+}
+
+type Mutation {
+    submitMap(
+    xmin: Float! 
+    ymin: Float! 
+    ymax: Float! 
+    xmax: Float! 
+    mapType: MapType!
+    nGraveyards: NumGraveyards!): Map
+}
+
+
