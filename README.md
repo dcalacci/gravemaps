@@ -1,12 +1,16 @@
 # gravemaps
 
 A graphql server and associated python code to create nice-looking list-maps of the graveyards in a
-bounding box. Here's an example, from boston:
+bounding box. Here's an example, from boston.
 
-![gravemap-boston](./notebooks/bbox_cemetery.png)
+To run:
 
-To create your own map of another area, either use the python code itself (example in `notebooks/`),
-or leverage the graphql api:
+```bash
+pip install -r requirements.txt
+cd server/ && python server.py
+```
+
+Then, navigate to http://127.0.0.1:5000/graphql, and put in a query, like this:
 
 ```graphql
 mutation {
@@ -24,3 +28,8 @@ mutation {
   }
 }
 ```
+
+![gravemap-boston](./notebooks/bbox_cemetery.png)
+
+To create your own map of another area, either use the python code itself (example in `notebooks/`),
+or leverage the graphql api:
