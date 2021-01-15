@@ -1,9 +1,12 @@
 # gravemaps
 
 A graphql server and associated python code to create nice-looking list-maps of the graveyards in a
-bounding box. Here's an example, from boston.
+bounding box. Here's an example, from boston:
 
-To run:
+![gravemap-boston](./notebooks/bbox_cemetery.png)
+
+To create your own map of another area, either use the python code itself (example in `notebooks/`),
+or leverage the graphql api, described below
 
 ```bash
 pip install -r requirements.txt
@@ -29,7 +32,8 @@ mutation {
 }
 ```
 
-![gravemap-boston](./notebooks/bbox_cemetery.png)
-
-To create your own map of another area, either use the python code itself (example in `notebooks/`),
-or leverage the graphql api:
+- `mapType`: `LEGEND` or `NOLEGEND`. describes if you want the names of the cemeteries on the
+  bottom.
+- `nGraveyards`: `SMALL`, `MEDIUM`, or `LARGE`. Describes how many cemeteries you'd like to include
+  in the map. It prioritizes larger cemeteries first, so a `SMALL` map will have only a few, very
+  major cemeteries.
